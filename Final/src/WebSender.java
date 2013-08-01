@@ -1,3 +1,9 @@
+/**
+ * 
+ * @author James Roberts jpr242
+ * 
+ */
+
 import java.io.BufferedReader;
 import java.io.DataOutputStream;
 import java.io.IOException;
@@ -11,24 +17,27 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
 import java.util.Set;
-
 import javax.net.ssl.HttpsURLConnection;
 
 
 public class WebSender {
 	
-	private final String requestMethod = "POST";
-	private final String textFormat = "UTF-8";
-	private final boolean doInput = true, doOutput = true;
+	private String requestMethod;
+	private String textFormat;
+	private boolean doInput, doOutput;
 	
 	private String URLTxt;
 	private String mapKey;
 	private String mapValue;
 	
-	public WebSender(String URLTxt, String mapKey, String mapValue) {
+	public WebSender(String URLTxt, String mapKey, String mapValue, String requestMethod, String textFormat, boolean doInput, boolean doOutput) {
 		this.URLTxt = URLTxt;
 		this.mapKey = mapKey;
 		this.mapValue = mapValue;
+		this.requestMethod = requestMethod;
+		this.textFormat = textFormat;
+		this.doInput = doInput;
+		this.doOutput = doOutput;
 	}
 	
 	public String getResponse() {
